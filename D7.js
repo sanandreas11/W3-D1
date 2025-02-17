@@ -2,13 +2,13 @@
   Scrivi una funzione per concatenare due stringhe ricevute come parametri, selezionando solamente i primi 2 caratteri della
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
-const jumble = function (str1, str2) {
-  const jumble1 = str1.slice(0, 2)
-  const jumble2 = str2.slice(-3)
-  const result = (jumble1 + jumble2).toUpperCase()
+const shambles = function (str1, str2) {
+  const shambles1 = str1.slice(0, 2)
+  const shambles2 = str2.slice(-3)
+  const result = (shambles1 + shambles2).toUpperCase()
   return result
 }
-console.log(jumble(`pattata`, `renato`))
+console.log(shambles(`pattata`, `renato`))
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
@@ -58,19 +58,25 @@ console.log(sumNumbers(num))
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
-const add51 = num.map((numbers) => {
-  return numbers + 51
-})
-console.log(add51)
+
+const increment = function (array, n) {
+  const newArray = array.map((value) => {
+    return value + n
+  })
+  return newArray
+}
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
-const words = [`Epicode`, `is`, `great`]
-const wordsToNumbers = words.map((words) => {
-  return words.length
-})
-console.log(wordsToNumbers)
+// const words = [`Epicode`, `is`, `great`]
+// const WtN = function (arr) {
+//   const arrayOfWords = arr.map((str) => {
+//     return str.length
+//   })
+//   return arrayOfWords
+// }
+// console.log(WtN())
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
@@ -203,10 +209,16 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
-const oldestMovie = function () {
-  movies.Year.sort()
+const findOldestMovie = function () {
+  let oldestMovie = movies[0]
+  movies.forEach((movie) => {
+    if (movie.Year < oldestMovie.Year) {
+      oldestMovie = movie
+    }
+  })
+  console.log(oldestMovie)
 }
-
+findOldestMovie()
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
